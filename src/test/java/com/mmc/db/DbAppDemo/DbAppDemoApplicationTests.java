@@ -5,9 +5,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+@ContextConfiguration("file:src/main/resources/jdbc-config.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class DbAppDemoApplicationTests {
 
@@ -17,8 +20,7 @@ public class DbAppDemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		System.out.println(jdbcTemplate);
-		jdbcTemplate.execute("create table nazwa_tabeli_XXX (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY)");
+
 	}
 
 }
