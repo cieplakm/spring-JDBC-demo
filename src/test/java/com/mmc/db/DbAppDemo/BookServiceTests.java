@@ -28,4 +28,15 @@ public class BookServiceTests {
         Assertions.assertThat(booksOrderefByAc.get(booksOrderefByAc.size()-1).getTitle()).isEqualTo("Zaawansowane programowanie w PHP");
 
     }
+
+    @Test
+    public void shouldReturnTheMostExpensiveBook(){
+        Book theMostExpensiveBook = bookService.getTheMostExpensiveBook();
+        float mostExpensiveBookPrice = 53.65F;
+
+        Assertions.assertThat(theMostExpensiveBook).isNotNull();
+        Assertions.assertThat(theMostExpensiveBook.getPrice()).isEqualTo(mostExpensiveBookPrice);
+    }
+
+
 }
