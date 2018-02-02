@@ -1,6 +1,7 @@
 package com.mmc.db.DbAppDemo;
 
 import com.mmc.db.DbAppDemo.model.Book;
+import com.mmc.db.DbAppDemo.model.Client;
 import com.mmc.db.DbAppDemo.services.BookService;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -36,6 +37,17 @@ public class BookServiceTests {
 
         Assertions.assertThat(theMostExpensiveBook).isNotNull();
         Assertions.assertThat(theMostExpensiveBook.getPrice()).isEqualTo(mostExpensiveBookPrice);
+    }
+
+    @Test
+    public void shouldReturnAllBooksOrderedByClient(){
+        Client client = new Client();
+        client.setId(2);
+
+        List<Book> expected = bookService.getBooksOrderedBy(client);
+
+        Assertions.assertThat(expected).isNotNull();
+        Assertions.assertThat(expected).extracting("id").containsExactly(4L,2L,5L);
     }
 
 
