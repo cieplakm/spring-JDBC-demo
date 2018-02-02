@@ -43,7 +43,4 @@ public class BookService {
         return jdbcTemplate.query(query, bookRowMapper);
     }
 
-    
-
-
 }
