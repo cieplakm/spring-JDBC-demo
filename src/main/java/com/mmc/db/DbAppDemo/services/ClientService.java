@@ -5,8 +5,6 @@ import com.mmc.db.DbAppDemo.model.Client;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +22,5 @@ public class ClientService {
         List<Client> clients = jdbcTemplate.query(query, clientRowMapper);
         return clients;
     }
-
 
 }
